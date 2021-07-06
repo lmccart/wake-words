@@ -1,0 +1,81 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: none;
+  font-family: 'botanika-mono-web', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-style: italic;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: #a5afd3;
+}
+.border {
+  height: 80vh;
+  width: calc(100vw - 20vh);
+  position: absolute;
+  top: 10vh;
+  left: 10vh;
+  z-index: 5;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+span {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  width: calc(100vw - 18vh);
+}
+
+#intro span {
+  color: #bbbbff;
+  font-size: 5vw;
+  max-height: 75vh;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-family: 'botanika-mono-web', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-style: italic;
+  font-size: 5vw;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+
+#instruct span {
+  color: #bbbbff;
+  font-size: 13vw;
+  opacity: 0;
+  max-height: 80vh;
+}
+
+#hidden-resizer {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#progress {
+  width: 40vw;
+  height: 40vw;
+}
