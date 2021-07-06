@@ -52,7 +52,7 @@ function instructNext() {
   $('#instruct-span').text(instructions[i]);
   resize($('#instruct-span'));
   $('#instruct-span').fadeTo(5000, 1).delay(10000).fadeTo(3000, 0).delay(2000).fadeTo(0, 0, instructNext);
-
+  
 }
 
 
@@ -71,7 +71,7 @@ function resize(target) {
   }
   console.log(resizer.height(),  parseInt(target.css('max-height'), 10), size)
   target.css('font-size', size);
-  console.log($('#hidden-resizer').height());
+  $('#intro-ok').css('font-size', size);
 }
 
 
