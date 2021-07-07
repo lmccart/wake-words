@@ -28,13 +28,17 @@ let instructions = [
   'Do your hands belong to you?'
 ];
 
+
 let i = 0;
 
-$('#intro-ok').click(instruct);
-setTimeout(() => {
+const font = new FontFaceObserver('botanika-mono-web');
+font.load().then(init);
+
+function init() {
   resize($('#intro-span'));
   $('#intro').show();
-}, 1000);
+  $('#intro-ok').click(instruct);
+}
 
 function instruct() {
   $('#intro').hide();
@@ -69,7 +73,7 @@ function resize(target) {
     size -= 1;
     resizer.css('font-size', size);
   }
-  console.log(resizer.height(),  parseInt(target.css('max-height'), 10), size)
+  // console.log(resizer.height(),  parseInt(target.css('max-height'), 10), size);
   target.css('font-size', size);
   $('#intro-ok').css('font-size', size);
 }
