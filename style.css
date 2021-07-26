@@ -71,7 +71,7 @@ button {
 	-webkit-animation: color 9s infinite alternate;
   font-size: 13vw;
   opacity: 0;
-  max-height: 80vh;
+  max-height: 75h;
 }
 
 #hidden-resizer {
@@ -116,4 +116,20 @@ button {
 @-webkit-keyframes color {
   from {color: #bbbbff;}
   to {color: #bbefff;}
+}
+
+@media (max-height: 1200px) {
+
+  span {
+    width: calc(100vw - 28vh);
+  }
+
+  #intro span {
+    max-height: 60vh;
+  }
+
+  #instruct span {
+    max-height: 80vh;
+  }
+
 }

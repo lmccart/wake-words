@@ -61,7 +61,6 @@ function init() {
 }
 
 function instruct() {
-  console.log('isn')
   i = Math.floor(Math.random() * instructions.length);
   $('#intro').hide();
   $('#instruct').show();
@@ -78,16 +77,12 @@ function instructNext() {
   $('#instruct-span').text(instructions[i]);
   resize($('#instruct-span'));
   $('#instruct-span').fadeTo(3000, 1, 'linear');
+  if (rotateTimeout) clearTimeout(rotateTimeout);
   rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
 }
 
 function runInstructNext() {
-  console.log('run')
-  if (rotateTimeout) clearTimeout(rotateTimeout);
-  $('#instruct-span').stop(true).fadeTo(3000, 0, 'linear').delay(1000).queue(next => {
-    instructNext();
-    next();
-  });
+  $('#instruct-span').stop(true).fadeTo(3000, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
 }
 
 
