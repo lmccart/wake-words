@@ -1,1 +1,3 @@
-# Wake Words, 2021, Lauren Lee McCarthy
+Wake Words
+2021
+Lauren Lee McCarthy
