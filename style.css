@@ -9,7 +9,9 @@ body {
   font-style: italic;
   text-transform: uppercase;
   cursor: pointer;
-  background: #a5afd3;
+  background: black;
+	animation: blur 8s infinite alternate;
+	-webkit-animation: blur 8s infinite alternate;
 }
 .border {
   height: 80vh;
@@ -31,6 +33,8 @@ body {
   flex-direction: column;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
+	animation: background 13s infinite alternate;
+	-webkit-animation: background 13s infinite alternate;
 }
 span {
   text-align: center;
@@ -63,6 +67,8 @@ button {
 
 #instruct span {
   color: #bbbbff;
+	animation: color 9s infinite alternate;
+	-webkit-animation: color 9s infinite alternate;
   font-size: 13vw;
   opacity: 0;
   max-height: 80vh;
@@ -78,4 +84,36 @@ button {
 #progress {
   width: 40vw;
   height: 40vw;
+}
+
+@keyframes blur {
+  0% { filter: blur(1px);}
+  70% { -webkit-filter: blur(1px);}
+  100% { filter: blur(4px);}
+}
+
+@-webkit-keyframes blur {
+  0% { -webkit-filter: blur(1px);}
+  70% { -webkit-filter: blur(1px);}
+  100% { -webkit-filter: blur(4px);}
+}
+
+@keyframes background {
+  from {background-color: black;}
+  to {background-color: rgb(4, 0, 41);}
+}
+
+@-webkit-keyframes background {
+  from {background-color: black;}
+  to {background-color: rgb(4, 0, 41);}
+}
+
+@keyframes color {
+  from {color: #bbbbff;}
+  to {color: #bbfaff;}
+}
+
+@-webkit-keyframes color {
+  from {color: #bbbbff;}
+  to {color: #bbefff;}
 }

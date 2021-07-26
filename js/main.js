@@ -17,30 +17,52 @@ let instructions = [
   'When you jump, do you float back down?',
   'Read a sentence twice without it changing',
   'Is your vision clearer or blurrier than normal?',
-  'Greet a stranger as if you know them and see if they know you',
+  'Greet a stranger as if you know them',
+  'Hug someone close to you and see if they feel real',
   'Check: Are the people around you acting like normal people?',
   'Do strangers know your name?',
-  'Say something. Does your voice sound off pitch? Is it coming from your mouth?',
+  'Does your voice sound off pitch?',
+  'Is your voice coming from your mouth?',
   'Have you forgotten how to do normal things? ',
-  'Are you doing something ridiculous?',
+  'Are you doing something ridic-ulous?',
   'Are you younger or older than you should be?',
   'Are you pregnant?',
-  'Do your hands belong to you?'
+  'Do your hands belong to you?',
+  'Are you someone else?',
+  'How long have you been here?',
+  'Check the color of the sky',
+  'Are you speaking without moving your lips?',
+  'Are you talking without moving your hands?',
+  'Are you suddenly somewhere else?',
+  'Fly',
+  'Try to lift something heavy',
+  'Imagine you are dreaming',
+  'Pretend you are awake',
+  'Do you have someone else\'s voice?',
+  'Do you remember how you got here?',
+  'Is this too good to be true?',
+  'Can you remember last week?'
 ];
 
 
 let i = 0;
+let rotateTimeout;
+let rotateTimeoutDur = 23000;
 
 const font = new FontFaceObserver('botanika-mono-web');
 font.load().then(init);
 
+
 function init() {
   resize($('#intro-span'));
   $('#intro').show();
-  $('#intro-ok').click(instruct);
+  $('#intro').click(instruct);
+  $('#instruct').click(runInstructNext);
 }
 
 function instruct() {
+  console.log('isn')
+  i = Math.floor(Math.random() * instructions.length);
   $('#intro').hide();
   $('#instruct').show();
   instructNext();
@@ -55,8 +77,17 @@ function instructNext() {
   $('#instruct-ok').hide();
   $('#instruct-span').text(instructions[i]);
   resize($('#instruct-span'));
-  $('#instruct-span').fadeTo(5000, 1).delay(10000).fadeTo(3000, 0).delay(2000).fadeTo(0, 0, instructNext);
-  
+  $('#instruct-span').fadeTo(3000, 1, 'linear');
+  rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
+}
+
+function runInstructNext() {
+  console.log('run')
+  if (rotateTimeout) clearTimeout(rotateTimeout);
+  $('#instruct-span').stop(true).fadeTo(3000, 0, 'linear').delay(1000).queue(next => {
+    instructNext();
+    next();
+  });
 }
 
 
