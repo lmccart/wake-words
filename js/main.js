@@ -54,10 +54,12 @@ font.load().then(init);
 
 
 function init() {
-  resize($('#intro-span'));
-  $('#intro').show();
-  $('#intro').click(instruct);
-  $('#instruct').click(runInstructNext);
+  setTimeout(() => { 
+    resize($('#intro-span')); 
+    $('#intro').show();
+    $('#intro').click(instruct);
+    $('#instruct').click(runInstructNext);
+  }, 1000);
 }
 
 function instruct() {
