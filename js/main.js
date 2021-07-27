@@ -41,7 +41,9 @@ let instructions = [
   'Do you have someone else\'s voice?',
   'Do you remember how you got here?',
   'Is this too good to be true?',
-  'Can you remember last week?'
+  'Can you remember last week?',
+  'Do you know why you\'re here?',
+  'Is everyone around you a stranger?'
 ];
 
 
