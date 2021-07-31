@@ -50,6 +50,7 @@ let instructions = [
 let i = 0;
 let rotateTimeout;
 let rotateTimeoutDur = 23000;
+let fadeTime = 3000;
 
 const font = new FontFaceObserver('botanika-mono-web');
 font.load().then(init);
@@ -58,7 +59,7 @@ font.load().then(init);
 function init() {
   setTimeout(() => { 
     resize($('#intro-span')); 
-    $('#intro').show();
+    $('#intro').fadeTo(fadeTime, 1, 'linear');
     $('#intro').click(instruct);
     $('#instruct').click(runInstructNext);
   }, 1500);
@@ -66,12 +67,11 @@ function init() {
 
 function instruct() {
   i = Math.floor(Math.random() * instructions.length);
-  $('#intro').hide();
-  $('#instruct').show();
-  instructNext();
+  $('#intro').fadeTo(fadeTime, 0, 'linear', instructNext);
 }
 
 function instructNext() {
+  $('#instruct').show();
   let lastI = i;
   while (lastI === i) {
     i = Math.floor(Math.random() * instructions.length);
@@ -80,13 +80,13 @@ function instructNext() {
   $('#instruct-ok').hide();
   $('#instruct-span').text(instructions[i]);
   resize($('#instruct-span'));
-  $('#instruct-span').fadeTo(3000, 1, 'linear');
+  $('#instruct-span').fadeTo(fadeTime, 1, 'linear');
   if (rotateTimeout) clearTimeout(rotateTimeout);
   rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
 }
 
 function runInstructNext() {
-  $('#instruct-span').stop(true).fadeTo(3000, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
+  $('#instruct-span').stop(true).fadeTo(fadeTime, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
 }
 
 
