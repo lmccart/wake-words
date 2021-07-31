@@ -61,7 +61,7 @@ function init() {
     $('#intro').show();
     $('#intro').click(instruct);
     $('#instruct').click(runInstructNext);
-  }, 1000);
+  }, 1500);
 }
 
 function instruct() {
