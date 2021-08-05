@@ -52,9 +52,7 @@ let rotateTimeout;
 let rotateTimeoutDur = 23000;
 let fadeTime = 3000;
 
-const font = new FontFaceObserver('botanika-mono-web');
-font.load().then(init);
-
+init();
 
 function init() {
   setTimeout(() => { 
@@ -67,7 +65,7 @@ function init() {
 
 function instruct() {
   i = Math.floor(Math.random() * instructions.length);
-  $('#intro').fadeTo(fadeTime, 0, 'linear', instructNext);
+  $('#intro').stop(true).fadeTo(500, 0, 'linear', instructNext);
 }
 
 function instructNext() {
@@ -85,8 +83,9 @@ function instructNext() {
   rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
 }
 
-function runInstructNext() {
-  $('#instruct-span').stop(true).fadeTo(fadeTime, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
+function runInstructNext(click) {
+  let ft = click ? 500 : fadeTime;
+  $('#instruct-span').stop(true).fadeTo(ft, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
 }
 
 

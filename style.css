@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: none;
-  font-family: 'botanika-mono-web', sans-serif;
+  font-family: 'botanika-mono-italic', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-style: italic;
@@ -40,11 +40,11 @@ span {
   text-align: center;
   display: inline-block;
   vertical-align: middle;
-  line-height: normal;
+  line-height: 1.24;
   width: calc(100vw - 18vh);
 }
 
-#intro span {
+#intro-span {
   color: #bbbbff;
   font-size: 5vw;
   max-height: 75vh;
@@ -55,7 +55,7 @@ button {
   outline: none;
   background: none;
   color: white;
-  font-family: 'botanika-mono-web', sans-serif;
+  font-family: 'botanika-mono-italic', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-style: italic;
@@ -65,13 +65,13 @@ button {
 }
 
 
-#instruct span {
+#instruct-span {
   color: #bbbbff;
 	animation: color 9s infinite alternate;
 	-webkit-animation: color 9s infinite alternate;
   font-size: 13vw;
   opacity: 0;
-  max-height: 75h;
+  max-height: 75vh;
 }
 
 #hidden-resizer {
@@ -132,4 +132,10 @@ button {
     max-height: 80vh;
   }
 
+}
+
+@font-face {
+  font-family: "botanika-mono-italic";
+  /* src: url('fonts/Botanika-Mono-Italic.woff2') format('woff2'), url('fonts/Botanika-Mono-Italic.woff') format('woff'); */
+  src: url('fonts/Botanika-Mono-SemiBold-Italic.woff2') format('woff2'), url('fonts/Botanika-Mono-SemiBold-Italic.woff') format('woff');
 }
