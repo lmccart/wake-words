@@ -52,15 +52,13 @@ let rotateTimeout;
 let rotateTimeoutDur = 23000;
 let fadeTime = 3000;
 
-init();
+$(document).ready(init);
 
 function init() {
-  setTimeout(() => { 
-    resize($('#intro-span')); 
-    $('#intro').fadeTo(fadeTime, 1, 'linear');
-    $('#intro').click(instruct);
-    $('#instruct').click(runInstructNext);
-  }, 1500);
+  resize($('#intro-span')); 
+  $('#intro').fadeTo(fadeTime, 1, 'linear');
+  $('#intro').click(instruct);
+  $('#instruct').click(runInstructNext);
 }
 
 function instruct() {
@@ -97,7 +95,7 @@ function resize(target) {
   resizer.html(target.text());
   resizer.css('font-size', 1000);
 
-  while(resizer.height() > parseInt(target.css('max-height'), 10) || resizer[0].scrollWidth > target.width()) {
+  while(resizer.height() > parseInt(target.css('max-height'), 10) || resizer[0].scrollWidth > target.width() + 50) {
     size = parseInt(resizer.css('font-size'), 10);
     size -= 1;
     resizer.css('font-size', size);
