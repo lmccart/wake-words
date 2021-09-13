@@ -45,7 +45,7 @@ let instructions = [
   'Do you know why you\'re here?',
   'Is everyone around you a stranger?'
 ];
-
+let sound = document.querySelector('#audio');
 
 let i = 0;
 let rotateTimeout;
@@ -77,6 +77,7 @@ function instructNext() {
   $('#instruct-span').text(instructions[i]);
   resize($('#instruct-span'));
   $('#instruct-span').fadeTo(fadeTime, 1, 'linear');
+  setTimeout(() => { playAudio(i); }, 1200);
   if (rotateTimeout) clearTimeout(rotateTimeout);
   rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
 }
@@ -103,6 +104,13 @@ function resize(target) {
   // console.log(resizer.height(),  parseInt(target.css('max-height'), 10), size);
   target.css('font-size', size);
   $('#intro-ok').css('font-size', size);
+}
+
+function playAudio(i) {
+  let n = String(i).padStart(2, '0');
+  sound.src = `audio/wake-words-${n}.mp3`;
+  console.log(sound.src);
+  sound.play();
 }
 
 
