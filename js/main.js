@@ -24,7 +24,7 @@ let instructions = [
   'Does your voice sound off pitch?',
   'Is your voice coming from your mouth?',
   'Have you forgotten how to do normal things? ',
-  'Are you doing something ridic-ulous?',
+  'Are you doing something ridiculous?',
   'Are you younger or older than you should be?',
   'Are you pregnant?',
   'Do your hands belong to you?',
@@ -48,38 +48,51 @@ let instructions = [
 let sound = document.querySelector('#audio');
 
 let i = 0;
+let count = 0;
 let rotateTimeout;
 let rotateTimeoutDur = 23000;
 let fadeTime = 3000;
+let introTime = 23000;
+let instructsPerRound = 2;
 
 $(document).ready(init);
 
 function init() {
   resize($('#intro-span')); 
-  $('#intro').fadeTo(fadeTime, 1, 'linear');
   $('#intro').click(instruct);
   $('#instruct').click(runInstructNext);
+  intro();
 }
 
-function instruct() {
-  i = Math.floor(Math.random() * instructions.length);
-  $('#intro').stop(true).fadeTo(500, 0, 'linear', instructNext);
+function intro() {
+  count = 0;
+  if (rotateTimeout) clearTimeout(rotateTimeout);
+  $('#intro').stop(true).fadeTo(fadeTime, 1.0, 'linear');
+
+  setTimeout(() => {
+    $('#intro').stop(true).fadeTo(fadeTime, 0, 'linear', instructNext);
+  }, introTime);
 }
 
 function instructNext() {
-  $('#instruct').show();
-  let lastI = i;
-  while (lastI === i) {
-    i = Math.floor(Math.random() * instructions.length);
+  count++;
+  if (count > instructsPerRound) {
+    intro();
+  } else {
+    $('#instruct').show();
+    let lastI = i;
+    while (lastI === i) {
+      i = Math.floor(Math.random() * instructions.length);
+    }
+    $('#instruct-span').css('opacity', 0);
+    $('#instruct-ok').hide();
+    $('#instruct-span').text(instructions[i]);
+    resize($('#instruct-span'));
+    $('#instruct-span').fadeTo(fadeTime, 1, 'linear');
+    setTimeout(() => { playAudio(i); }, 1200);
+    if (rotateTimeout) clearTimeout(rotateTimeout);
+    rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
   }
-  $('#instruct-span').css('opacity', 0);
-  $('#instruct-ok').hide();
-  $('#instruct-span').text(instructions[i]);
-  resize($('#instruct-span'));
-  $('#instruct-span').fadeTo(fadeTime, 1, 'linear');
-  setTimeout(() => { playAudio(i); }, 1200);
-  if (rotateTimeout) clearTimeout(rotateTimeout);
-  rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
 }
 
 function runInstructNext(click) {
@@ -103,6 +116,7 @@ function resize(target) {
   }
   // console.log(resizer.height(),  parseInt(target.css('max-height'), 10), size);
   target.css('font-size', size);
+  target.css('height', resizer.height() - 0.33 * size);
   $('#intro-ok').css('font-size', size);
 }
 

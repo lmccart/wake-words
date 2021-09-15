@@ -13,16 +13,6 @@ body {
 	animation: blur 8s infinite alternate;
 	-webkit-animation: blur 8s infinite alternate;
 }
-.border {
-  height: 80vh;
-  width: calc(100vw - 20vh);
-  position: absolute;
-  top: 10vh;
-  left: 10vh;
-  z-index: 5;
-  box-sizing: border-box;
-  pointer-events: none;
-}
 .container {
   height: 100vh;
   width: 100vw;
@@ -41,14 +31,19 @@ span {
   display: inline-block;
   vertical-align: middle;
   line-height: 1.24;
-  width: calc(100vw - 18vh);
+  width: calc(100vw - 40vh);
 }
 
 #intro-span {
   color: #bbbbff;
   font-size: 5vw;
-  max-height: 75vh;
+  max-height: 60vh;
 }
+
+#intro {
+  z-index: 1;
+}
+
 
 button {
   border: none;
@@ -71,7 +66,7 @@ button {
 	-webkit-animation: color 9s infinite alternate;
   font-size: 13vw;
   opacity: 0;
-  max-height: 75vh;
+  max-height: 60vh;
 }
 
 #hidden-resizer {
@@ -116,22 +111,6 @@ button {
 @-webkit-keyframes color {
   from {color: #bbbbff;}
   to {color: #bbefff;}
-}
-
-@media (max-height: 1200px) {
-
-  span {
-    width: calc(100vw - 28vh);
-  }
-
-  #intro span {
-    max-height: 60vh;
-  }
-
-  #instruct span {
-    max-height: 80vh;
-  }
-
 }
 
 @font-face {
