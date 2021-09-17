@@ -59,7 +59,7 @@ $(document).ready(init);
 
 function init() {
   resize($('#intro-span')); 
-  $('#intro').click(instruct);
+  $('#intro').click(runInstructNext);
   $('#instruct').click(runInstructNext);
   intro();
 }
@@ -97,6 +97,7 @@ function instructNext() {
 
 function runInstructNext(click) {
   let ft = click ? 500 : fadeTime;
+  $('#intro').stop(true).fadeTo(ft, 0, 'linear');
   $('#instruct-span').stop(true).fadeTo(ft, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
 }
 
