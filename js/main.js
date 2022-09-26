@@ -43,7 +43,8 @@ let instructions = [
   'Is this too good to be true?',
   'Can you remember last week?',
   'Do you know why you\'re here?',
-  'Is everyone around you a stranger?'
+  'Is everyone around you a stranger?',
+  'Can you say things you wouldn\' normally?'
 ];
 let sound = document.querySelector('#audio');
 
@@ -53,7 +54,7 @@ let rotateTimeout;
 let rotateTimeoutDur = 23000;
 let fadeTime = 3000;
 let introTime = 23000;
-let instructsPerRound = 2;
+let instructsPerRound = 20;
 
 $(document).ready(init);
 
