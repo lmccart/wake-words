@@ -1,50 +1,112 @@
-let instructions = [
-  'Try to walk through a wall',
-  'Flip a light switch and see if it works',
-  'Close your eyes and float off the ground',
-  'Push your finger through your palm',
-  'Close your mouth and nose and inhale',
-  'Look in a mirror',
-  'Ask yourself: Are you in multiple locations?',
-  'Check the color of the grass',
-  'Count your fingers',
-  'Look at your hands',
-  'Are you able to shift objects across a room or area without going near them?',
-  'Flip the light switch without touching it',
-  'Make objects appear before you just by wishing',
-  'Can you teleport?',
-  'Do you have any superpowers you forgot you had?',
-  'When you jump, do you float back down?',
-  'Read a sentence twice without it changing',
-  'Is your vision clearer or blurrier than normal?',
-  'Greet a stranger as if you know them',
-  'Hug someone close to you and see if they feel real',
-  'Check: Are the people around you acting like normal people?',
-  'Do strangers know your name?',
-  'Does your voice sound off pitch?',
-  'Is your voice coming from your mouth?',
-  'Have you forgotten how to do normal things? ',
-  'Are you doing something ridiculous?',
-  'Are you younger or older than you should be?',
-  'Are you pregnant?',
-  'Do your hands belong to you?',
-  'Are you someone else?',
-  'How long have you been here?',
-  'Check the color of the sky',
-  'Are you speaking without moving your lips?',
-  'Are you talking without moving your hands?',
-  'Are you suddenly somewhere else?',
-  'Fly',
-  'Try to lift something heavy',
-  'Imagine you are dreaming',
-  'Pretend you are awake',
-  'Do you have someone else\'s voice?',
-  'Do you remember how you got here?',
-  'Is this too good to be true?',
-  'Can you remember last week?',
-  'Do you know why you\'re here?',
-  'Is everyone around you a stranger?'
+let lib = {};
+lib.instructions = [
+  'Try to $verb$ through a $noun$',
+  'Flip a $noun$ and see if it works',
+  'Close your $pluralnoun$ and $verb$ off the ground',
+  'Push your $noun$ through your $noun$',
+  'Close your $noun$ and $verb$',
+  'Look in a $noun$',
+  'Ask yourself: Are you $phrase$?',
+  'Check the $property$ of the $noun$',
+  'Count your $pluralnoun$',
+  'Look at your $noun$',
+  // 'Are you able to shift objects across a room or area without going near them?',
+  'Flip the $noun$ without $gerund$ it',
+  'Make objects appear before you just by $gerund$',
+  'Can you $verb$?',
+  // 'Do you have any superpowers you forgot you had?',
+  // 'When you jump, do you float back down?',
+  // 'Read a sentence twice without it changing',
+  // 'Is your vision clearer or blurrier than normal?',
+  // 'Greet a stranger as if you know them',
+  // 'Hug someone close to you and see if they feel real',
+  // 'Check: Are the people around you acting like normal people?',
+  // 'Do strangers know your name?',
+  // 'Does your voice sound off pitch?',
+  // 'Is your voice coming from your mouth?',
+  // 'Have you forgotten how to do normal things? ',
+  // 'Are you doing something ridiculous?',
+  'Are you $adjective$ than you should be?',
+  // 'Are you pregnant?',
+  // 'Do your hands belong to you?',
+  // 'Are you someone else?',
+  // 'How long have you been here?',
+  // 'Check the color of the sky',
+  // 'Are you speaking without moving your lips?',
+  // 'Are you talking without moving your hands?',
+  // 'Are you suddenly somewhere else?',
+  // 'Fly',
+  // 'Try to lift something heavy',
+  'Imagine you are $gerund$',
+  // 'Pretend you are awake',
+  'Do you have someone else\'s $noun$?',
+  // 'Do you remember how you got here?',
+  // 'Is this too good to be true?',
+  'Can you remember $time$?',
+  // 'Do you know why you\'re here?',
+  // 'Is everyone around you a stranger?'
 ];
+
+lib.noun = [
+  'wall',
+  'ground',
+  'light switch',
+  'finger',
+  'palm',
+  'mouth',
+  'nose',
+  'mirror',
+  'grass',
+  'voice'
+];
+
+lib.pluralnoun = [
+  'eyes',
+  'fingers',
+  'hands',
+]
+
+lib.time = [
+  'last week',
+  'yesterday',
+  'this morning',
+  'tomorrow'
+]
+
+lib.property = [
+  
+  'color',
+]
+
+lib.verb = [
+  'walk',
+  'float',
+  'inhale',
+  'teleport'
+];
+
+lib.gerund = [
+  'wishing',
+  'touching',
+  'seeing',
+  'dreaming'
+]
+
+lib.adjective = [
+  'older',
+  'younger',
+  'hotter',
+  'colder',
+  'warmer',
+  'taller'
+
+];
+
+lib.phrase = [
+  'in multiple locations'
+]
+
+
 let sound = document.querySelector('#audio');
 
 let i = 0;
@@ -53,7 +115,7 @@ let rotateTimeout;
 let rotateTimeoutDur = 23000;
 let fadeTime = 3000;
 let introTime = 23000;
-let instructsPerRound = 2;
+let instructsPerRound = 100;
 
 $(document).ready(init);
 
@@ -82,14 +144,15 @@ function instructNext() {
     $('#instruct').show();
     let lastI = i;
     while (lastI === i) {
-      i = Math.floor(Math.random() * instructions.length);
+      i = Math.floor(Math.random() * lib.instructions.length);
     }
+    let inst = getInstruction(i);
     $('#instruct-span').css('opacity', 0);
     $('#instruct-ok').hide();
-    $('#instruct-span').text(instructions[i]);
+    $('#instruct-span').text(inst);
     resize($('#instruct-span'));
     $('#instruct-span').fadeTo(fadeTime, 1, 'linear');
-    setTimeout(() => { playAudio(i); }, 1200);
+    // setTimeout(() => { playAudio(i); }, 1200);
     if (rotateTimeout) clearTimeout(rotateTimeout);
     rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
   }
@@ -127,6 +190,25 @@ function playAudio(i) {
   console.log(sound.src);
   sound.play();
 }
+
+
+function getInstruction(i) {
+  let text = lib.instructions[i];
+  while (text.includes('$')) {
+    console.log('TEXT ', text)
+    let start = text.indexOf('$')+1;
+    let end = text.indexOf('$', start);
+    console.log(start, end)
+    let type = text.substring(start, end);
+    let arr = lib[type];
+    console.log(type)
+    console.log(arr)
+    let rand = arr[Math.floor(Math.random() * arr.length)];
+    text = text.substring(0, start - 1) + rand + text.substring(end + 1);
+  }
+  return text;
+}
+
 
 
 
