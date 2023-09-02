@@ -9,9 +9,9 @@ body {
   font-style: italic;
   text-transform: uppercase;
   cursor: pointer;
-  background: black;
-	animation: blur 8s infinite alternate;
-	-webkit-animation: blur 8s infinite alternate;
+  background: rgba(185, 252, 0, 0.895);
+	animation: blur 10s infinite alternate;
+	-webkit-animation: blur 10s infinite alternate;
 }
 .container {
   height: 100vh;
@@ -31,13 +31,12 @@ span {
   display: inline-block;
   vertical-align: middle;
   line-height: 1.24;
-  width: calc(100vw - 40vh);
+  width: calc(100vw - 10vh);
 }
 
 #intro-span {
   color: #bbbbff;
-  font-size: 5vw;
-  max-height: 60vh;
+  max-height: 80vh;
 }
 
 #intro {
@@ -83,34 +82,38 @@ button {
 
 @keyframes blur {
   0% { filter: blur(1px);}
-  70% { -webkit-filter: blur(1px);}
-  100% { filter: blur(4px);}
+  60% { -webkit-filter: blur(1px);}
+  100% { filter: blur(0.5vw);}
 }
 
 @-webkit-keyframes blur {
   0% { -webkit-filter: blur(1px);}
-  70% { -webkit-filter: blur(1px);}
-  100% { -webkit-filter: blur(4px);}
+  60% { -webkit-filter: blur(1px);}
+  100% { -webkit-filter: blur(0.5vw);}
 }
 
 @keyframes background {
-  from {background-color: black;}
-  to {background-color: rgb(4, 0, 41);}
+  0% {background-color: rgb(0, 255, 0);}
+  55% {background-color: rgba(127, 255, 7, 0.895);}
+  100% {background-color: rgba(185, 252, 0, 0.895);}
 }
 
 @-webkit-keyframes background {
-  from {background-color: black;}
-  to {background-color: rgb(4, 0, 41);}
+  0% {background-color: rgb(0, 255, 0);}
+  55% {background-color: rgba(127, 255, 7, 0.895);}
+  100% {background-color: rgba(185, 252, 0, 0.895);}
 }
 
 @keyframes color {
-  from {color: #bbbbff;}
-  to {color: #bbfaff;}
+  0% {color: #bbbbff;}
+  45% {color: #bbfaff;}
+  100% {color: #ffffff;}
 }
 
 @-webkit-keyframes color {
-  from {color: #bbbbff;}
-  to {color: #bbefff;}
+  0% {color: #bbbbff;}
+  45% {color: #bbfaff;}
+  100% {color: #ffffff;}
 }
 
 @font-face {
