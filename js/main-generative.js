@@ -164,9 +164,9 @@ let i = 0;
 let count = 0;
 let rotateTimeout;
 let rotateTimeoutDur = 23000;
-let fadeTime = 3000;
+let fadeTime = 1000;
 let introTime = 23000;
-let instructsPerRound = 100;
+let instructsPerRound = 20;
 
 $(document).ready(init);
 
@@ -203,8 +203,7 @@ function instructNext() {
     $('#instruct-ok').hide();
     $('#instruct-span').text(inst);
     resize($('#instruct-span'));
-    $('#instruct-span').fadeTo(fadeTime, 1, 'linear');
-    // setTimeout(() => { playAudio(i); }, 1200);
+    $('#instruct-span').delay(300).fadeTo(fadeTime, 1, 'linear');
     if (rotateTimeout) clearTimeout(rotateTimeout);
     rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
   }
@@ -213,7 +212,7 @@ function instructNext() {
 function runInstructNext(click) {
   let ft = click ? 500 : fadeTime;
   $('#intro').stop(true).fadeTo(ft, 0, 'linear');
-  $('#instruct-span').stop(true).fadeTo(ft, 0, 'linear').delay(1000).fadeTo(0, 0, instructNext);
+  $('#instruct-span').stop(true).fadeTo(ft, 0, 'linear').delay(1000).fadeTo(ft, 0, instructNext);
 }
 
 
@@ -230,9 +229,10 @@ function resize(target) {
     size -= 1;
     resizer.css('font-size', size);
   }
-  // console.log(resizer.height(),  parseInt(target.css('max-height'), 10), size);
-  target.css('font-size', size);
-  target.css('height', resizer.height());
-  target.css('width', resizer.width());
-  // console.log(target.width(), target.height(), resizer.width(), resizer.height(), target.css('font-size'), resizer.css('font-size'))
+  setTimeout(() => {
+    target.css('font-size', size);
+    target.css('height', resizer.height() - 0.33*size);
+    target.css('width', resizer.width());
+    // console.log(target.width(), target.height(), resizer.width(), resizer.height(), target.css('font-size'), resizer.css('font-size'))
+  }, 100)
 }

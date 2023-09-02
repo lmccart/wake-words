@@ -31,7 +31,7 @@ span {
   display: inline-block;
   vertical-align: middle;
   line-height: 1.24;
-  width: calc(100vw - 10vh);
+  width: calc(100vw - 10vh) !important;
 }
 
 #intro-span {
@@ -75,11 +75,6 @@ button {
   left: 0;
 }
 
-#progress {
-  width: 40vw;
-  height: 40vw;
-}
-
 @keyframes blur {
   0% { filter: blur(1px);}
   60% { -webkit-filter: blur(1px);}
@@ -105,15 +100,15 @@ button {
 }
 
 @keyframes color {
-  0% {color: #bbbbff;}
-  45% {color: #bbfaff;}
-  100% {color: #ffffff;}
+  0% {color: #ffffff;}
+  30% {color: #bbbbff;}
+  100% {color: #bbfaff;}
 }
 
 @-webkit-keyframes color {
-  0% {color: #bbbbff;}
-  45% {color: #bbfaff;}
-  100% {color: #ffffff;}
+  0% {color: #ffffff;}
+  30% {color: #bbbbff;}
+  100% {color: #bbfaff;}
 }
 
 @font-face {
