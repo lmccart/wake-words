@@ -168,43 +168,26 @@ let sound = document.querySelector('#audio');
 let i = 0;
 let count = 0;
 let fadeTime = 1000;
-let introTime = 23000;
 let instructsPerRound = 20;
 
 $(document).ready(init);
 
 function init() {
-  resize($('#intro-span')); 
-  $('#intro').click(runInstructNext);
   $('#instruct').click(runInstructNext);
-  intro();
-}
-
-function intro() {
-  count = 0;
-  $('#intro').stop(true).fadeTo(fadeTime, 1.0, 'linear');
-
-  setTimeout(() => {
-    $('#intro').stop(true).fadeTo(fadeTime, 0, 'linear', instructNext);
-  }, introTime);
 }
 
 function instructNext() {
   count++;
-  if (count > instructsPerRound) {
-    intro();
-  } else {
-    $('#instruct').show();
-    let lastI = i;
-    while (lastI === i) {
-      i = Math.floor(Math.random() * lib.instructions.length);
-    }
-    let inst = getInstruction(i);
-    startGeneration(inst);
-    $('#instruct-span').text(inst);
-    resize($('#instruct-span'));
-    scrollDown();
+  $('#instruct').show();
+  let lastI = i;
+  while (lastI === i) {
+    i = Math.floor(Math.random() * lib.instructions.length);
   }
+  let inst = getInstruction(i);
+  startGeneration(inst);
+  $('#instruct-span').text(inst);
+  resize($('#instruct-span'));
+  // scrollDown();
 }
 
 function runInstructNext(click) {
