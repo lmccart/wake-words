@@ -1,94 +1,49 @@
 
 let lib = {
   instructions: [
-    // "[motion] through [barrier]",
-    // "[flipswitch] and see if it [seeif]",
-    // "[closeyoureyes] and [breathe]",
-    // "[push] [ground/bodyparts] through [bodyparts]",
-    // "[closeyoureyes] and [action]",
-    // "Look [preposition] [noun/bodyparts]",
-    // "Are you in multiple [plurals]?",
-    // "[check] the [prop] of [noun/bodyparts]",
-    // "[adverb] count [bodyparts]",
-    // "Do [others] know your name?",
-    // "Have you forgotten how to [normalthings/action]?",
-    // "Are you [comparison] than you should be?",
-    // "Ask: can [bodyparts] belong to you?",
-    // "Are you [person]?",
-    // "Are you [adverb] [location]?",
-    // "[motion]",
-    // "try [motion]ing [adverb]",
-    // "Can you [motion]?",
-    // "[imagine] you are [state/person]",
-    // "Can you say things you wouldn't [normally/imagine]?",
-    // "Are you [speaking] without moving [bodyparts]?",
-    // "Is your [bodyfunction] [comparison] than normal?",
-    // "Does your [bodyfunction] sound off pitch?",
-    // "Is your [bodyfunction] coming from your mouth?",
-    // "Are you doing something [ridiculous]?",
-    // "Make [others/objects] appear [preposition] you just by [wishing]",
-    // "Do you have someone else's voice?",
-    // "Do you [imagine] how you got here?",
-    // "Is this too [adjective] to be [true]?",
-    // "Can you [imagine] [time]?",
-    // "Do you know why you're [location]?",
-    // "Is everyone around you [person]?",
-    // "try to [push] something [adjective]",
-    // "How long have you been [location]?",
-    // "Are you able to shift objects across a room without going near them?",
-    // "[flipswitch] without touching it",
-    // "Do you have any superpowers you forgot you had?",
-    // "When you jump do you float back down?",
-    // "Read a sentence twice without it changing",
-    // "Greet a stranger as if you know them",
-    // "[action] [person] and [check] if they feel [true]",
-    // "Are the people around you [wishing/speaking] like [others]?",
+    "[motion] through [barrier]",
+    "[flipswitch] and see if it [seeif]",
+    "[closeyoureyes] and [breathe]",
+    "[push] [ground/bodyparts] through [bodyparts]",
+    "[closeyoureyes] and [action]",
+    "Look [preposition] [noun/bodyparts]",
+    "Are you in multiple [plurals]?",
+    "[check] the [prop] of [noun/bodyparts]",
+    "[adverb] count [bodyparts]",
+    "Do [others] know your name?",
+    "Have you forgotten how to [normalthings/action]?",
+    "Are you [comparison] than you should be?",
+    "Ask: can [bodyparts] belong to you?",
+    "Are you [person]?",
+    "Are you [adverb] [location]?",
+    "[motion]",
+    "try [motion]ing [adverb]",
+    "Can you [motion]?",
+    "[imagine] you are [state/person]",
+    "Can you say things you wouldn't [normally/imagine]?",
+    "Are you [speaking] without moving [bodyparts]?",
+    "Is your [bodyfunction] [comparison] than normal?",
+    "Does your [bodyfunction] sound off pitch?",
+    "Is your [bodyfunction] coming from your mouth?",
+    "Are you doing something [ridiculous]?",
+    "Make [others/objects] appear [preposition] you just by [wishing]",
+    "Do you have someone else's voice?",
+    "Do you [imagine] how you got here?",
+    "Is this too [adjective] to be [true]?",
+    "Can you [imagine] [time]?",
+    "Do you know why you're [location]?",
+    "Is everyone around you [person]?",
+    "try to [push] something [adjective]",
+    "How long have you been [location]?",
+    "Are you able to shift objects across a room without going near them?",
+    "[flipswitch] without touching it",
+    "Do you have any superpowers you forgot you had?",
+    "When you jump do you float back down?",
+    "Read a sentence twice without it changing",
+    "Greet a stranger as if you know them",
+    "[action] [person] and [check] if they feel [true]",
+    "Are the people around you [wishing/speaking] like [others]?",
 
-      'Try to walk through a wall',
-      'Flip a light switch and see if it works',
-      'Close your eyes and float off the ground',
-      'Push your finger through your palm',
-      'Close your mouth and nose and inhale',
-      'Look in a mirror',
-      'Ask yourself: Are you in multiple locations?',
-      'Check the color of the grass',
-      'Count your fingers',
-      'Look at your hands',
-      'Are you able to shift objects across a room or area without going near them?',
-      'Flip the light switch without touching it',
-      'Make objects appear before you just by wishing',
-      'Can you teleport?',
-      'Do you have any superpowers you forgot you had?',
-      'When you jump, do you float back down?',
-      'Read a sentence twice without it changing',
-      'Is your vision clearer or blurrier than normal?',
-      'Greet a stranger as if you know them',
-      'Hug someone close to you and see if they feel real',
-      'Check: Are the people around you acting like normal people?',
-      'Do strangers know your name?',
-      'Does your voice sound off pitch?',
-      'Is your voice coming from your mouth?',
-      'Have you forgotten how to do normal things? ',
-      'Are you doing something ridiculous?',
-      'Are you younger or older than you should be?',
-      'Are you pregnant?',
-      'Do your hands belong to you?',
-      'Are you someone else?',
-      'How long have you been here?',
-      'Check the color of the sky',
-      'Are you speaking without moving your lips?',
-      'Are you talking without moving your hands?',
-      'Are you suddenly somewhere else?',
-      'Fly',
-      'Try to lift something heavy',
-      'Imagine you are dreaming',
-      'Pretend you are awake',
-      'Do you have someone else\'s voice?',
-      'Do you remember how you got here?',
-      'Is this too good to be true?',
-      'Can you remember last week?',
-      'Do you know why you\'re here?',
-      'Is everyone around you a stranger?'
 
   ],
 
@@ -125,6 +80,9 @@ let lib = {
   objects: ["objects", "things", "other places"],
   true: ["true", "real", "happening"],
 };
+
+
+const scroll_time = 2000;
 
 let socketid = '';
 let msgid = '';
@@ -209,8 +167,6 @@ let sound = document.querySelector('#audio');
 
 let i = 0;
 let count = 0;
-let rotateTimeout;
-let rotateTimeoutDur = 23000;
 let fadeTime = 1000;
 let introTime = 23000;
 let instructsPerRound = 20;
@@ -226,7 +182,6 @@ function init() {
 
 function intro() {
   count = 0;
-  if (rotateTimeout) clearTimeout(rotateTimeout);
   $('#intro').stop(true).fadeTo(fadeTime, 1.0, 'linear');
 
   setTimeout(() => {
@@ -246,20 +201,15 @@ function instructNext() {
     }
     let inst = getInstruction(i);
     startGeneration(inst);
-    $('#instruct-span').css('opacity', 0);
-    $('#instruct-ok').hide();
     $('#instruct-span').text(inst);
     resize($('#instruct-span'));
-    $('#instruct-span').delay(300).fadeTo(fadeTime, 1, 'linear');
-    if (rotateTimeout) clearTimeout(rotateTimeout);
-    rotateTimeout = setTimeout(runInstructNext, rotateTimeoutDur);
+    scrollDown();
   }
 }
 
 function runInstructNext(click) {
-  let ft = click ? 500 : fadeTime;
-  $('#intro').stop(true).fadeTo(ft, 0, 'linear');
-  $('#instruct-span').stop(true).fadeTo(ft, 0, 'linear').delay(1000).fadeTo(ft, 0, instructNext);
+  console.log('next')
+  instructNext();
 }
 
 
@@ -270,7 +220,6 @@ function resize(target) {
 
   resizer.html(target.html());
   resizer.css('font-size', 1000);
-
   while(resizer.height() > parseInt(target.css('max-height'), 10) || resizer[0].scrollWidth > target.width() + 5) {
     size = parseInt(resizer.css('font-size'), 10);
     size -= 1;
@@ -283,3 +232,17 @@ function resize(target) {
     // console.log(target.width(), target.height(), resizer.width(), resizer.height(), target.css('font-size'), resizer.css('font-size'))
   }, 100)
 }
+
+
+function scrollDown() {
+  $('#instruct').stop();
+  $('#instruct').scrollTop(0);
+  setTimeout(() => {
+    let st = $('#instruct').prop('scrollHeight') - window.innerHeight * 0.75;
+    console.log(st);
+    $('#instruct').animate({
+      scrollTop: st
+    }, 30000, 'linear', instructNext);
+  }, 100);
+}
+

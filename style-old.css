@@ -8,20 +8,19 @@ body {
   font-style: italic;
   text-transform: uppercase;
   cursor: pointer;
-	animation: background 13s infinite alternate;
-
+	/* animation: background 13s infinite alternate; */
+  background: black;
 }
 
 .container {
   overflow-y: scroll;
-  overflow-x: hidden;
   height: calc(100vh - 15vw);
   width: 85vw;
   position: absolute;
   top: 7.5vw;
   left: 7.5vw;
   text-align: center;
-  border: 4px solid #1a1428;
+  border: 4px solid #e6e6fd;
   animation: rotate 10s infinite alternate;
   
 }
@@ -31,9 +30,9 @@ span {
   display: inline-block;
   vertical-align: middle;
   line-height: 1.24;
-  width: 80vw !important;
+  width: calc(100vw - 15vh) !important;
 	animation: blur 10s infinite alternate, color 9s infinite alternate;
-  /* word-break: break-all; */
+  word-break: break-all;
 }
 
 #intro-span {
@@ -48,13 +47,15 @@ span {
 
 .spacer1 {
   height: 100vh;
+  background: linear-gradient(#e6e6fd, black);
 }
 .spacer2 {
   height: 100vh;
+  background: linear-gradient(black, #e6e6fd);
 }
 
 #instruct-span {
-  color: #1a1428;
+  color: #e6e6fd;
   max-height: 85vh;
 }
 
@@ -63,14 +64,14 @@ span {
 }
 
 ::-webkit-scrollbar-track {
-  border-left: 4px solid #1a1428;
+  border-left: 4px solid #e6e6fd;
   width: 2.5vw;
-  border-color: #1a1428;
+  border-color: #e6e6fd;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-color: #1a1428;
-  background: #1a1428;
+  border-color: #e6e6fd;
+  background: #e6e6fd;
 }
 
 @font-face {
@@ -89,17 +90,30 @@ span {
 @keyframes blur {
   0% { filter: blur(1px);}
   60% { -webkit-filter: blur(3px);}
-  100% { filter: blur(6px);}
+  100% { filter: blur(1vw);}
 }
 
 @keyframes background {
-  0% {background-color: #fffef6;}
-  55% {background-color: white;}
-  100% {background-color: #e8f5ff;}
-  
+  /* 0% {background-color: rgb(0, 255, 115);}
+  100% {background-color: rgb(185, 252, 0);} */
+
+  from {background-color: black;}
+  to {background-color: rgb(4, 0, 41);}
 }
 
 @keyframes rotate {
-  0% {filter:hue-rotate(320deg)} 
-  100% {filter:hue-rotate(35deg)}
+  0% {filter:hue-rotate(230deg)} 
+  100% {filter:hue-rotate(360deg)}
+}
+
+/* @keyframes color {
+  0% {color: #ffffff;}
+  30% {color: #bbbbff;}
+  100% {color: #bbfaff;}
+} */
+
+@keyframes scroll {
+  0% {color: #ffffff; border-color: #ffffff; background: #ffffff; }
+  30% {color: #bbbbff; border-color: #bbbbff; background: #bbbbff;}
+  100% {color: #bbfaff; border-color: #bbfaff; background: #bbfaff; }
 }
