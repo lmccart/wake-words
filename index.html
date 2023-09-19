@@ -4,9 +4,6 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
     <link rel='icon' href='favicon.ico' type='image/x-icon' />
-    <title>TESTING</title>
-
-    <script src='https://what-to-say.xyz/socket.io/socket.io.js'></script>
     <script src='js/jquery-3.6.0.min.js'></script>
     <link rel='stylesheet' href='style.css?v=1.1'>
 
@@ -14,14 +11,17 @@
   <body>
     <div id='instruct' class='container'>
 
-      <div class='spacer1'></div>
-      <span id='instruct-span'></span>
-      <div class='spacer2'></div>
+      <div class='spacer'>
+        <span id='start-span'>Click to start</span>
+      </div>
+      <div class='instruct-spacer'>
+        <span id='instruct-span'></span>
+      </div>
+      <div class='spacer'></div>
 
     </div>
 
     <span id='hidden-resizer'></span>
-    <audio src='' id='audio'></audio>
     <script src='js/main-generative.js?v=1.0'></script>
   </body>
 </html>

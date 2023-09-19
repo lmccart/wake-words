@@ -1,3 +1,4 @@
+let synthesis, voices, voice;
 
 let lib = {
   instructions: [
@@ -43,8 +44,6 @@ let lib = {
     "Greet a stranger as if you know them",
     "[action] [person] and [check] if they feel [true]",
     "Are the people around you [wishing/speaking] like [others]?",
-
-
   ],
 
   motion: ["walk", "pace", "float", "drift", "slide", "squeeze", "jump", "levitate", "fly", "reach", "disappear", "fade", "escape", "teleport", "dance"],
@@ -81,41 +80,29 @@ let lib = {
   true: ["true", "real", "happening"],
 };
 
-
 const scroll_time = 2000;
 
-let socketid = '';
-let msgid = '';
-const domain = 'https://what-to-say.xyz';
-const socket = io(domain);
-
-socket.on('connect', () => {
-  socketid = socket.id;
-});
-
-socket.on('sample', (data) => {
-  console.log(data);
-  console.log('msgid', msgid);
-  if (msgid === data.id) {
-    play(data.url, data.msg);
-  }
+if ('speechSynthesis' in window) {
+  synthesis = window.speechSynthesis;
+  synthesis.cancel();
+  voices = synthesis.getVoices();
+}
+synthesis.addEventListener('voiceschanged', () => {
+  voices = speechSynthesis.getVoices();
+  // console.log(voices);
+  voice = voices.find(voice => voice.name === 'Google US English');
+  if (!voice) voice = voices.find(voice => voice.name === 'Samantha');
+  console.log(voice);
 });
 
 function startGeneration(msg) {
-  fetch(`${domain}/generateSpeech?msg=${msg}&socketid=${socketid}&type=ww`)
-  .then(result => result.json())
-  .then(result => {
-    msgid = result.id;
-  }, (err) => { console.log(err); });
+  if (synthesis) {
+    synthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(msg);
+    utterance.voice = voice;
+    synthesis.speak(utterance);
+  }
 }
-
-function play(url, msg, type) {
-  console.log('play ', url)
-  sound.src = url;
-  sound.play();
-}
-
-
 
 function getRandomElement(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
@@ -173,24 +160,26 @@ let instructsPerRound = 20;
 $(document).ready(init);
 
 function init() {
+  $('#instruct').scrollTop(($('.spacer').height() - $('#instruct').height())/2);
   $('#instruct').click(runInstructNext);
 }
 
 function instructNext() {
   count++;
+  $('#instruct').stop();
   $('#instruct').show();
   let lastI = i;
   while (lastI === i) {
     i = Math.floor(Math.random() * lib.instructions.length);
   }
   let inst = getInstruction(i);
-  startGeneration(inst);
   $('#instruct-span').text(inst);
   resize($('#instruct-span'));
-  // scrollDown();
+  scrollDown(inst);
 }
 
 function runInstructNext(click) {
+  $('#start-span').hide();
   console.log('next')
   instructNext();
 }
@@ -217,15 +206,22 @@ function resize(target) {
 }
 
 
-function scrollDown() {
+function scrollDown(inst) {
   $('#instruct').stop();
   $('#instruct').scrollTop(0);
   setTimeout(() => {
-    let st = $('#instruct').prop('scrollHeight') - window.innerHeight * 0.75;
-    console.log(st);
     $('#instruct').animate({
-      scrollTop: st
-    }, 30000, 'linear', instructNext);
+      scrollTop: $('#instruct').height()
+    }, 3000, 'linear', () => { scrollFinish(inst); });
   }, 100);
 }
 
+function scrollFinish(inst) {
+  $('#instruct').stop();
+  let st = $('#instruct').prop('scrollHeight') - $('#instruct').height();
+  console.log(st);
+  startGeneration(inst);
+  $('#instruct').animate({
+    scrollTop: st
+  }, 5000, 'linear', instructNext);
+}

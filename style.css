@@ -9,6 +9,7 @@ body {
   text-transform: uppercase;
   cursor: pointer;
 	animation: background 13s infinite alternate;
+  overflow: hidden;
 
 }
 
@@ -47,17 +48,29 @@ span {
 }
 
 
-.spacer1 {
+.spacer {
   height: 100vh;
-  /* background: linear-gradient(#0e0d11AB, #fffef600 ); */
+  display: flex;
+  align-items: center;
 }
-.spacer2 {
+
+
+.instruct-spacer {
   height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#start-span {
+  font-size: 5vw;
+  margin: 0 auto;
 }
 
 #instruct-span {
   color: #1a1428;
-  max-height: 85vh;
+  display: block;
+  margin: 0 auto;
+  max-height: 85vw;
 }
 
 ::-webkit-scrollbar {
