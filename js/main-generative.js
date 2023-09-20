@@ -90,8 +90,8 @@ if ('speechSynthesis' in window) {
 synthesis.addEventListener('voiceschanged', () => {
   voices = speechSynthesis.getVoices();
   // console.log(voices);
-  voice = voices.find(voice => voice.name === 'Google US English');
-  if (!voice) voice = voices.find(voice => voice.name === 'Samantha');
+  // voice = voices.find(voice => voice.name === 'Google US English');
+  voice = voices.find(voice => voice.name === 'Samantha');
   console.log(voice);
 });
 
