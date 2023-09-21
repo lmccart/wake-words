@@ -34,7 +34,7 @@ span {
   vertical-align: middle;
   line-height: 1.24;
   width: 75vw !important;
-	animation: blur 10s infinite alternate, color 9s infinite alternate;
+	animation: blur 15s infinite alternate, color 9s infinite alternate;
   /* word-break: break-all; */
 }
 
@@ -103,8 +103,8 @@ span {
 
 @keyframes blur {
   0% { filter: blur(1px);}
-  70% { -webkit-filter: blur(2px);}
-  100% { filter: blur(5px);}
+  65% { -webkit-filter: blur(3px);}
+  100% { filter: blur(6px);}
 }
 
 @keyframes background {

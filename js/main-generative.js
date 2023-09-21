@@ -54,7 +54,7 @@ let lib = {
   seeif:["works", "breaks", "disappears", "rewinds", "resets", "opens", "closes", "stops", "starts", "pauses"],
   closeyoureyes: ["Close your eyes", "Close your mouth", "Hold your breath", "Touch your face", "Relax your shoulders", "Feel your heartbeat", "Listen to your surroundings", "Stretch your arms", "Pay attention to your thoughts", "Take a deep breath", "Notice your surroundings", "Open your ears", "Release your jaw", "Count your breaths", "Observe your emotions", "Scan your body for tension", "Express gratitude", "list your accomplishments", "Reflect on your goals", "Feel the ground beneath", "Trace your fingers over an object", "Let go of worries"],
   breathe: ["breathe", "inhale", "exhale", "say something", "whisper", "hum softly", "sigh", "smell"],
-  ground: ["the ground", "the floor", "the grass", "the walls"],
+  ground: ["the ground", "the floor", "the grass", "the walls", "the internet"],
   bodyparts: ["Your finger", "your mouth", "your phone", "Your fingers", "Your palm", "Your hands", "Your head", "Your feet", "Your toes", "Your lips", "Your eyes", "Your ears", "Your nose", "Your chin", "Your cheeks", "Your arms", "Your legs", "Your shoulders", "Your knees", "Your elbows", "Your neck", "Your stomach", "Your back", "Your hips", "Your thighs", "Your shins", "Your ankles", "Your wrists", "Your knuckles", "Your nails", "Your tongue"],
   bodyfunction: ["voice", "vision", "hearing", "sense of taste", "awareness", "perception", "online presence", "identity"],
   push: ["push", "stick", "fit", "slide", "squeeze", "shoot", "lift", "pull", "roll", "post", "erase"],
@@ -62,11 +62,11 @@ let lib = {
   plurals: ["locations", "places", "times", "days", "personalities", "hands", "Environments", "Settings", "Moments", "Occasions", "Characteristics", "Traits", "Scenarios", "Situations", "Circumstances", "Atmospheres", "Periods", "Dates", "Individuals", "Identities"],
   prop: ["normalcy", "steadiness", "persistence", "color", "age", "smell", "taste", "sound", "density", "shape", "texture", "temperature", "brightness", "opacity", "size", "weight", "speed", "height", "length", "width", "depth", "volume", "intensity", "pattern", "motion", "motion", "movement", "direction", "position", "location", "distance", "duration", "frequency", "rhythm", "tone", "pitch", "melody", "harmony", "contrast", "focus", "emphasis", "shadows", "reflections", "transparency", "viscosity", "hardness", "roughness", "smoothness", "flexibility", "fragility", "elasticity", "viscosity", "opacity", "luminosity", "fragrance", "aroma", "flavor", "bouquet", "spiciness", "blurriness"],
   noun: ["the grass", "the floor", "the air", "the ceiling", "the sun", "the walls", "the people around you", "strangers", "friends", "your clothing", "a mirror", "a closet", "behind a wall", "my face", "your heart", "the past", "the future"],
-  adjective: ["good", "loud", "familiar", "wild", "fantastic", "fabulous", "heavy", "invisible", "thrilling", "visible", "full", "melodic", "rhyming", "present", "locked", "surreal", "light", "soft", "invisible", "virtual"],
+  adjective: ["good", "loud", "familiar", "wild", "fantastic", "fabulous", "heavy", "invisible", "thrilling", "visible", "melodic", "rhyming", "present", "locked", "surreal", "light", "soft", "invisible", "virtual", "empty", "fleeting"],
   preposition: ["with", "for", "in", "under", "inside", "around", "through", "before", "After", "Between", "Beside", "Beyond", "On top of", "Near", "Across", "Against", "Among", "Amidst", "Within"],
-  comparison: ["older", "younger", "hotter", "colder", "warmer", "taller", "more pregnant", "clearer", "blurrier", "fuzzier", "more desirable", "more attractive", "bigger", "smaller", "louder", "quieter", "brighter", "calmer", , "Faster", "Slower", "Lighter", "Sweeter", "smaller"],
+  comparison: ["older", "younger", "hotter", "colder", "warmer", "taller", "more pregnant", "clearer", "blurrier", "fuzzier", "more desirable", "more attractive", "bigger", "smaller", "louder", "quieter", "brighter", "calmer", , "Faster", "Slower", "Lighter", "Sweeter", "smaller", "smarter", "happier", "more secure", "more certain", "sillier", "funnier", "more likable", "more famous"],
   adverb: ["Quickly", "Carefully", "Fully", "Suddenly", "Completely", "Quietly", "Effortlessly", "Deliberately", "Gracefully", "Spontaneously", "Intentionally", "Thoroughly", "Abruptly", "Precisely", "Gently", "Unpredictably", "Methodically", "Rapidly", "Quietly", "Efficiently", "Inexplicably", "Steadily", "Invariably", "Discreetly", "Elegantly", "Relentlessly", "Consistently", "Meticulously", "Unwaveringly", "Effusively", "Decisively", ""],
-  check: ["check", "observe", "see", "notice", "reflect on", "check in on", "verify", "test"],
+  check: ["check", "observe", "see", "notice", "reflect on", "check in on", "verify", "test", "question"],
   normalthings: ["do normal things", "talk to strangers", "interact with people", "respond", "remember", "take breaks", "pause", "slow down"],
   person: ["someone else", "yourself", "your mother", "your father", "a stranger", "someone close to you", "a relative", "your sibling", "your friend", "your crush", "your internet friend", "your contact", "your follower"],
   others: ["strangers", "people", "others", "children", "animals", "normal people", "bystanders", "pedestrians", "users", "locals", "friends", "followers"],
@@ -84,8 +84,8 @@ let lib = {
   true: ["True", "Real", "Happening", "Authentic", "Genuine", "Occurring", "Actual", "Factual", "Veritable", "Legitimate", "Tangible", "Substantial", "Valid", "Confirmed", "Validated", "Certified", "Verified", "Concrete", "Existent", "Unquestionable"],
   superpowers: ["Superpowers", "Habits", "Talents", "Desires", "Inconsistencies", "Fears", "Dreams", "Worries", "Aspirations", "Strengths", "Weaknesses", "Passions", "Regrets", "Hobbies", "Quirks", "Goals", "Challenges", "Secrets", "Doubts", "Joys", "memories", "anxieties", "devices", "emotions", "expectations", "doubts", "questions"],
   changing: ["changing", "breaking", "disappearing", "reseting", "crashing", "restarting", "crumbling", "shifting", "generating"],
-  knowthem: ["you know them", "you remember them", "you've seen them before", "you are testing them", "you are awake", "you are the same", "you are different", "you connect", "you follow each other", "you are internet friends", "you recognize each other", "you can communicate"],
-  why: ["why", "when", "how", "if", "whether", "how much", "how long", "to what extent", "how exactly", "how completely"],
+  knowthem: ["you know them", "you remember them", "you've seen them before", "you are testing them", "you are awake", "you are the same", "you are different", "you connect", "you follow each other", "you are internet friends", "you recognize each other", "you can communicate", "you just met", "you remember them", "you know them", "you feel them"],
+  why: ["why", "when", "how", "how much", "how long", "to what extent", "how exactly", "how completely", "when else", "how freely"],
   do: ["do", "say", "hear", "notice", "feel", "remember", "speak to", "touch", "hold", "see", "know", "sense"],
   info: ["name", "id", "username", "voice", "information", "location", "password", "preferences", "favorites", "history", "face", "thoughts"],
   offpitch: ["off pitch", "wrong", "right", "loud", "quiet", "correct", "fuzzy", "blurry", "sharp", "edgy", "late", "off balance"],
@@ -113,6 +113,7 @@ function startGeneration(msg) {
     synthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(msg);
     utterance.voice = voice;
+    utterance.rate = 0.8;
     synthesis.speak(utterance);
   }
 }
@@ -225,7 +226,7 @@ function scrollDown(inst) {
   setTimeout(() => {
     $('#instruct').animate({
       scrollTop: $('#instruct').height()
-    }, 3000, 'linear', () => { scrollFinish(inst); });
+    }, 1000, 'linear', () => { scrollFinish(inst); });
   }, 100);
 }
 
@@ -236,7 +237,7 @@ function scrollFinish(inst) {
   startGeneration(inst);
   $('#instruct').animate({
     scrollTop: st
-  }, 20000, 'linear', instructNext);
+  }, 30000, 'linear', instructNext);
 }
 
 
@@ -247,17 +248,17 @@ let repeated = [];
 
 
 
-// for (let j=0; j<500; j++) {
-//   let lastI = i;
-//   while (lastI === i) {
-//     i = Math.floor(Math.random() * lib.instructions.length);
-//   }
-//   let inst = getInstruction(i);
-//   if (tests.includes(inst)) {
-//     repeated.push(inst);
-//   }
+for (let j=0; j<500; j++) {
+  let lastI = i;
+  while (lastI === i) {
+    i = Math.floor(Math.random() * lib.instructions.length);
+  }
+  let inst = getInstruction(i);
+  if (tests.includes(inst)) {
+    repeated.push(inst);
+  }
   
-//   tests.push(inst);
-//   console.log(inst)
-// }
-// console.log(repeated)
+  tests.push(inst);
+  console.log(inst)
+}
+console.log(repeated)
