@@ -26,7 +26,7 @@ let lib = {
     "Are you [speaking] without moving [bodyparts]?",
     "Is your [bodyfunction] [comparison] than normal?",
     "Does your [bodyfunction] sound [offpitch]?",
-    "Is your [bodyfunction] coming from your [bodyparts/location]?",
+    "Is your [bodyfunction] coming from your [bodyparts]?",
     "Are you doing something [ridiculous]?",
     "Make [others/objects] appear [preposition] you just by [wishing]",
     "Do you have the [bodyfunction] of [person]?",
@@ -189,7 +189,7 @@ function instructNext() {
   let inst = getInstruction(i);
   $('#instruct-span').text(inst);
   resize($('#instruct-span'));
-  scrollDown(inst);
+  // scrollDown(inst);
 }
 
 function runInstructNext(click) {
