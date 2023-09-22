@@ -241,22 +241,23 @@ function scrollFinish(inst) {
 
 
 
-let tests = [];
-let repeated = [];
+// let tests = [];
+// let repeated = [];
 
 
 
-for (let j=0; j<500; j++) {
-  let lastI = i;
-  while (lastI === i) {
-    i = Math.floor(Math.random() * lib.instructions.length);
-  }
-  let inst = getInstruction(i);
-  if (tests.includes(inst)) {
-    repeated.push(inst);
-  }
+// for (let j=0; j<500; j++) {
+//   let lastI = i;
+//   while (lastI === i) {
+//     i = Math.floor(Math.random() * lib.instructions.length);
+//   }
+//   let inst = getInstruction(i);
+//   if (tests.includes(inst)) {
+//     repeated.push(inst);
+//   }
   
-  tests.push(inst);
-  console.log(inst)
-}
-console.log(repeated)
+//   tests.push(inst);
+//   console.log(inst)
+// }
+// console.log(repeated)
+console.log('updated september 22 12:44');
