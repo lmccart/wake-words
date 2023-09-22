@@ -14,7 +14,7 @@ let lib = {
     "Do [others] know your [info]?",
     "Have you [forgot] how to [normalthings/action]?",
     "Are you [comparison] than you should be?",
-    "Ask: can [bodyparts/objects] belong to you?",
+    "Ask: does [bodyparts/objects] belong to you?",
     "Are you [person]?",
     "Are you [adverb] [location]?",
     "[motion]",
@@ -92,8 +92,6 @@ let lib = {
   multiple: ["multiple", "different", "simultaneous", "uncertain", "confusing"],
   can: ["can", "will", "do", "how do", "should", "why won't", "won't", "can't", "must"]
 };
-
-const scroll_time = 2000;
 
 if ('speechSynthesis' in window) {
   synthesis = window.speechSynthesis;
@@ -189,7 +187,7 @@ function instructNext() {
   let inst = getInstruction(i);
   $('#instruct-span').text(inst);
   resize($('#instruct-span'));
-  // scrollDown(inst);
+  scrollDown(inst);
 }
 
 function runInstructNext(click) {
